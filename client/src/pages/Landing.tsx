@@ -43,7 +43,7 @@ export default function Landing() {
         <section className="container py-20 md:py-32">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+              <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight neon-glow">
                 Create Professional
                 <br />
                 <span className="text-accent">Manhwa</span> with AI
@@ -92,7 +92,7 @@ export default function Landing() {
         {/* Features Section */}
         <section className="container py-20 border-t border-border/50">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-16 neon-glow">
               Powerful AI Features
             </h2>
 
@@ -193,7 +193,7 @@ export default function Landing() {
         {/* Workflow Section */}
         <section className="container py-20 border-t border-border/50">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-black text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-16 neon-glow">
               Your Creative Workflow
             </h2>
 
@@ -226,7 +226,7 @@ export default function Landing() {
         {/* CTA Section */}
         <section className="container py-20 border-t border-border/50">
           <div className="max-w-2xl mx-auto text-center space-y-8 p-8 border border-accent/30 bg-accent/5">
-            <h2 className="text-4xl font-black">Ready to Create?</h2>
+            <h2 className="text-4xl font-black neon-glow">Ready to Create?</h2>
             <p className="text-lg text-muted-foreground">
               Start creating professional manhwa today. No credit card required.
             </p>
