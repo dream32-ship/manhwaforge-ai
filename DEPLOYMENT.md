@@ -48,6 +48,10 @@ VITE_ANALYTICS_WEBSITE_ID=your_website_id
 # App Configuration
 VITE_APP_TITLE=ManhwaForge AI
 VITE_APP_LOGO=https://your-logo-url.png
+
+# Google OAuth (Optional)
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
 ```
 
 ## Installation
@@ -239,3 +243,26 @@ For issues or questions:
 ## License
 
 MIT
+
+
+## Google OAuth Setup (Optional)
+
+To enable Google OAuth login:
+
+1. **Create a Google OAuth Application**:
+   - Go to Google Cloud Console (https://console.cloud.google.com/)
+   - Create a new project
+   - Enable the Google+ API
+   - Create OAuth 2.0 credentials (Web application)
+   - Add authorized redirect URIs: `https://yourdomain.com/api/oauth/google/callback`
+
+2. **Add Environment Variables**:
+   ```env
+   VITE_GOOGLE_CLIENT_ID=your_client_id
+   GOOGLE_CLIENT_SECRET=your_client_secret
+   ```
+
+3. **Test the Flow**:
+   - Users can now click "Sign in with Google" on the landing page
+   - They'll be redirected to Google's login
+   - After authentication, they'll be automatically logged into ManhwaForge

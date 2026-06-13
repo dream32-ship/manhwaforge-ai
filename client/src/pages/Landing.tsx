@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { getLoginUrl } from "@/const";
+import { getLoginUrl, getGoogleLoginUrl } from "@/const";
 import { useAuth } from "@/_core/hooks/useAuth";
 import { useLocation } from "wouter";
 import { ArrowRight, Zap, Sparkles, Palette, BookOpen, Download } from "lucide-react";
@@ -30,12 +30,21 @@ export default function Landing() {
               <span className="text-accent">MANHWA</span>
               <span className="text-secondary">FORGE</span>
             </div>
-            <Button
-              onClick={() => (window.location.href = getLoginUrl())}
-              className="bg-accent text-accent-foreground hover:bg-accent/90"
-            >
-              Sign In
-            </Button>
+            <div className="flex gap-2">
+              <Button
+                onClick={() => (window.location.href = getLoginUrl())}
+                className="bg-accent text-accent-foreground hover:bg-accent/90"
+              >
+                Sign In
+              </Button>
+              <Button
+                onClick={() => (window.location.href = getGoogleLoginUrl())}
+                variant="outline"
+                className="border-accent/50 text-accent hover:bg-accent/10"
+              >
+                Google
+              </Button>
+            </div>
           </div>
         </nav>
 
@@ -64,10 +73,11 @@ export default function Landing() {
               </Button>
               <Button
                 size="lg"
+                onClick={() => (window.location.href = getGoogleLoginUrl())}
                 variant="outline"
                 className="text-lg px-8 py-6 border-accent/50 text-accent hover:bg-accent/10"
               >
-                Watch Demo
+                Sign in with Google
               </Button>
             </div>
 
@@ -230,13 +240,23 @@ export default function Landing() {
             <p className="text-lg text-muted-foreground">
               Start creating professional manhwa today. No credit card required.
             </p>
-            <Button
-              size="lg"
-              onClick={() => (window.location.href = getLoginUrl())}
-              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6"
-            >
-              Get Started Free
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                size="lg"
+                onClick={() => (window.location.href = getLoginUrl())}
+                className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6"
+              >
+                Get Started Free
+              </Button>
+              <Button
+                size="lg"
+                onClick={() => (window.location.href = getGoogleLoginUrl())}
+                variant="outline"
+                className="text-lg px-8 py-6 border-accent/50 text-accent hover:bg-accent/10"
+              >
+                Google Sign In
+              </Button>
+            </div>
           </div>
         </section>
 
