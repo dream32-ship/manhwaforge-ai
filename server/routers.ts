@@ -7,8 +7,11 @@ import {
   getUserProjects,
   getProjectById,
   createProject,
+  deleteProject,
+  updateProject,
   getProjectCharacters,
   createCharacter,
+  deleteCharacter,
   getProjectStories,
   createStory,
   getProjectChapters,
@@ -18,6 +21,7 @@ import {
   createPanel,
   getProjectAssets,
   createAsset,
+  deleteAsset,
   getChapterExports,
   createExport,
 } from "./db";
@@ -51,6 +55,32 @@ const projectsRouter = router({
     .mutation(async ({ ctx, input }) => {
       const result = await createProject(ctx.user.id, input);
       return result;
+    }),
+
+  update: protectedProcedure
+    .input(
+      z.object({
+        projectId: z.number(),
+        title: z.string().optional(),
+        description: z.string().optional(),
+        genre: z.string().optional(),
+        themes: z.string().optional(),
+        status: z.enum(["draft", "in_progress", "completed"]).optional(),
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const { projectId, ...data } = input;
+      const project = await getProjectById(projectId, ctx.user.id);
+      if (!project) throw new TRPCError({ code: "NOT_FOUND" });
+      return updateProject(projectId, ctx.user.id, data);
+    }),
+
+  delete: protectedProcedure
+    .input(z.object({ projectId: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      const project = await getProjectById(input.projectId, ctx.user.id);
+      if (!project) throw new TRPCError({ code: "NOT_FOUND" });
+      return deleteProject(input.projectId, ctx.user.id);
     }),
 });
 
@@ -137,6 +167,12 @@ Include: Full body pose, clear facial features, clothing details, professional l
 
       const url = await generateImageWithFreeService(prompt);
       return { url };
+    }),
+
+  delete: protectedProcedure
+    .input(z.object({ characterId: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      return deleteCharacter(input.characterId, ctx.user.id);
     }),
 });
 
@@ -369,6 +405,14 @@ const assetsRouter = router({
         imageKey: input.imageKey,
         metadata: input.metadata,
       });
+    }),
+
+  delete: protectedProcedure
+    .input(z.object({ assetId: z.number(), projectId: z.number() }))
+    .mutation(async ({ ctx, input }) => {
+      const project = await getProjectById(input.projectId, ctx.user.id);
+      if (!project) throw new TRPCError({ code: "NOT_FOUND" });
+      return deleteAsset(input.assetId, ctx.user.id);
     }),
 });
 

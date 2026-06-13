@@ -15,8 +15,8 @@
 - [x] Build character creation tRPC procedure
 - [x] Build panel generation tRPC procedure
 - [x] Build project management procedures (create, list, update, delete)
-- [ ] Build asset library procedures (save, list, delete assets)
-- [ ] Build export procedures (PDF, image sequence)
+- [x] Build asset library procedures (save, list, delete assets)
+- [x] Build export procedures (PDF, image sequence)
 
 ## Phase 3: Landing Page
 - [x] Design and implement dark cyberpunk landing page
@@ -42,7 +42,7 @@
 - [x] Implement chapter script generation
 - [x] Add real-time progress indicators
 - [x] Add streaming text display with markdown support
-- [ ] Implement save story functionality
+- [x] Implement save story functionality
 
 ## Phase 6: Character Creator
 - [x] Create character creation interface
@@ -50,29 +50,29 @@
 - [x] Implement AI character profile generation
 - [x] Implement manga-style reference image generation
 - [x] Add character preview display
-- [ ] Implement save character to library
+- [x] Implement save character to library
 - [ ] Add character consistency tracking
 
 ## Phase 7: Panel Generator & Comic Studio
 - [x] Create panel generator interface
 - [x] Implement scene description input
 - [x] Implement manga-style panel generation
-- [ ] Create drag-and-drop comic canvas
-- [ ] Implement panel arrangement system
-- [ ] Add speech bubble editor
-- [ ] Add text overlay system
-- [ ] Implement panel composition tools
+- [ ] Create drag-and-drop comic canvas (advanced feature)
+- [ ] Implement panel arrangement system (advanced feature)
+- [ ] Add speech bubble editor (advanced feature)
+- [ ] Add text overlay system (advanced feature)
+- [ ] Implement panel composition tools (advanced feature)
 - [x] Add panel preview
 
 ## Phase 8: Asset Library & Export
-- [ ] Create asset library interface
-- [ ] Implement asset organization (characters, panels, backgrounds)
-- [ ] Implement asset search and filtering
+- [x] Create asset library interface
+- [x] Implement asset organization (characters, panels, backgrounds)
+- [x] Implement asset search and filtering
 - [ ] Implement asset reuse functionality
-- [ ] Create PDF export functionality
-- [ ] Create image sequence export
+- [x] Create PDF export functionality
+- [x] Create image sequence export
 - [ ] Implement batch export
-- [ ] Add export progress tracking
+- [x] Add export progress tracking
 
 ## Phase 9: UI/UX Polish
 - [ ] Add cyberpunk visual effects throughout
@@ -87,12 +87,12 @@
 - [ ] Optimize performance
 
 ## Phase 10: Deployment & Testing
-- [ ] Run comprehensive vitest suite
-- [ ] Test all tRPC procedures
-- [ ] Test S3 storage integration
-- [ ] Test LLM streaming
-- [ ] Test image generation
-- [ ] Test export functionality
+- [x] Run comprehensive vitest suite
+- [x] Test all tRPC procedures
+- [x] Test S3 storage integration
+- [x] Test LLM streaming
+- [x] Test image generation
+- [x] Test export functionality
 - [ ] Deploy to production
 - [ ] Push code to GitHub
 - [ ] Create deployment documentation

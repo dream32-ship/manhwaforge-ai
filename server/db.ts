@@ -1,4 +1,4 @@
-import { and, eq } from "drizzle-orm";
+import { eq, and } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
 import {
   InsertUser,
@@ -323,4 +323,68 @@ export async function createExport(
     status: "generating",
     ...data,
   });
+}
+
+
+// ============ Delete Operations ============
+export async function deleteAsset(assetId: number, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Verify ownership before deleting
+  const asset = await db.select().from(assets).where(eq(assets.id, assetId)).limit(1);
+  if (!asset[0] || asset[0].userId !== userId) {
+    throw new Error("Unauthorized");
+  }
+  
+  return db.delete(assets).where(eq(assets.id, assetId));
+}
+
+export async function deleteProject(projectId: number, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Verify ownership before deleting
+  const project = await db.select().from(projects).where(eq(projects.id, projectId)).limit(1);
+  if (!project[0] || project[0].userId !== userId) {
+    throw new Error("Unauthorized");
+  }
+  
+  return db.delete(projects).where(eq(projects.id, projectId));
+}
+
+export async function deleteCharacter(characterId: number, userId: number) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Verify ownership before deleting
+  const character = await db.select().from(characters).where(eq(characters.id, characterId)).limit(1);
+  if (!character[0] || character[0].userId !== userId) {
+    throw new Error("Unauthorized");
+  }
+  
+  return db.delete(characters).where(eq(characters.id, characterId));
+}
+
+export async function updateProject(
+  projectId: number,
+  userId: number,
+  data: {
+    title?: string;
+    description?: string;
+    genre?: string;
+    themes?: string;
+    status?: "draft" | "in_progress" | "completed";
+  }
+) {
+  const db = await getDb();
+  if (!db) throw new Error("Database not available");
+  
+  // Verify ownership before updating
+  const project = await db.select().from(projects).where(eq(projects.id, projectId)).limit(1);
+  if (!project[0] || project[0].userId !== userId) {
+    throw new Error("Unauthorized");
+  }
+  
+  return db.update(projects).set(data).where(eq(projects.id, projectId));
 }
