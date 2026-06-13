@@ -68,7 +68,7 @@
 - [x] Create asset library interface
 - [x] Implement asset organization (characters, panels, backgrounds)
 - [x] Implement asset search and filtering
-- [ ] Implement asset reuse functionality
+- [x] Implement asset reuse functionality (via Asset Library UI)
 - [x] Create PDF export functionality
 - [x] Create image sequence export
 - [x] Implement batch export
