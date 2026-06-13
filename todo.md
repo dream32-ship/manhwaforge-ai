@@ -102,7 +102,7 @@
 - [x] Add Google OAuth login option
 - [x] Test Google authentication flow
 - [x] Fix any remaining errors
-- [ ] Push code to GitHub
-- [ ] Deploy to production
-- [ ] Verify live production URL
-- [ ] Test all features in production
+- [x] Push code to GitHub (https://github.com/dream32-ship/manhwaforge-ai)
+- [x] Deploy to production
+- [x] Verify live production URL
+- [x] Test all features in production
